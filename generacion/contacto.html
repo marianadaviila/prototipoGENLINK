@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenLink - Contactos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+	<nav class="sidebar">
+		<div class="logo">
+			<img src="img/Asset 1.png" alt="GenLink">
+		</div>
+		<ul>
+			<li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+			<li><a href="clases.html"><i class="fas fa-book"></i> Clases</a></li>
+			<li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
+			<li><a href="foro.html"><i class="fas fa-comments"></i> Foro</a></li>
+			<li><a href="contacto.html" class="active"><i class="fas fa-envelope"></i> Contactos</a></li>
+		</ul>
+	</nav>
+
+    <div class="content">
+        <h1>Mensajes</h1>
+        <div class="chat-box">
+            <div class="message user1"><strong>Usuario1:</strong> Hola, ¿cómo te fue en la clase?</div>
+            <div class="message user2"><strong>Tú:</strong> Bien, aprendí muchas cosas nuevas.</div>
+        </div>
+        <div class="message-form">
+            <input type="text" placeholder="Escribe un mensaje..." class="input-box">
+            <button class="btn">Enviar</button>
+        </div>
+    </div>
+	
+
+    <script>
+        function sendMessage() {
+            let messageInput = document.getElementById("messageInput");
+            let messageText = messageInput.value.trim();
+
+            if (messageText !== "") {
+                let chatBox = document.querySelector(".chat-box");
+                let newMessage = document.createElement("div");
+                newMessage.classList.add("chat-message", "response");
+                newMessage.innerHTML = `<strong>Tú:</strong> ${messageText}`;
+                chatBox.appendChild(newMessage);
+                messageInput.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
